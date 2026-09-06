@@ -1,0 +1,11 @@
+config.json
+state.json
+state.json.*
+state.lock
+.tickets/
+PLUGIN.md
+__pycache__/
+.pytest_cache/
+.venv/
+*.pyc
+.env

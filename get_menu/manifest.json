@@ -1,0 +1,19 @@
+{
+  "name": "get_menu",
+  "description": "Get a restaurant menu with optional name filtering.",
+  "entrypoint": "run.py",
+  "parameters": {
+    "slug": {
+      "type": "string",
+      "description": "Restaurant slug, as returned by search_restaurants."
+    },
+    "filter": {
+      "type": "string",
+      "description": "Case-insensitive substring to match item names. Optional."
+    },
+    "limit": {
+      "type": "integer",
+      "description": "Maximum number of matching menu items to return. Optional; defaults to 30."
+    }
+  }
+}

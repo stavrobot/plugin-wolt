@@ -1,0 +1,11 @@
+{
+  "name": "get_order_status",
+  "description": "Get the current status and charges for an order.",
+  "entrypoint": "run.py",
+  "parameters": {
+    "purchase_id": {
+      "type": "string",
+      "description": "Order ID returned by list_orders."
+    }
+  }
+}

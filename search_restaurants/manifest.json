@@ -1,0 +1,19 @@
+{
+  "name": "search_restaurants",
+  "description": "Search for restaurants near a location. Returned slugs are used by the other Wolt tools.",
+  "entrypoint": "run.py",
+  "parameters": {
+    "query": {
+      "type": "string",
+      "description": "Restaurant search query."
+    },
+    "latitude": {
+      "type": "number",
+      "description": "Latitude for the search location. Optional."
+    },
+    "longitude": {
+      "type": "number",
+      "description": "Longitude for the search location. Optional."
+    }
+  }
+}

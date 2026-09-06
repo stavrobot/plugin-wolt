@@ -1,0 +1,11 @@
+{
+  "name": "list_orders",
+  "description": "List recent Wolt orders with their items and totals.",
+  "entrypoint": "run.py",
+  "parameters": {
+    "limit": {
+      "type": "integer",
+      "description": "Maximum number of recent orders to return. Optional; defaults to 5."
+    }
+  }
+}

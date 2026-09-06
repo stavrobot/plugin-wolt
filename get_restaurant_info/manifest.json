@@ -1,0 +1,19 @@
+{
+  "name": "get_restaurant_info",
+  "description": "Get practical restaurant details, delivery availability, and pricing.",
+  "entrypoint": "run.py",
+  "parameters": {
+    "slug": {
+      "type": "string",
+      "description": "Restaurant slug, as returned by search_restaurants."
+    },
+    "latitude": {
+      "type": "number",
+      "description": "Latitude for the delivery location. Optional."
+    },
+    "longitude": {
+      "type": "number",
+      "description": "Longitude for the delivery location. Optional."
+    }
+  }
+}
