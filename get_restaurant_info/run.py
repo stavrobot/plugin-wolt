@@ -40,6 +40,9 @@ def get_restaurant_info(
         ),
         None,
     )
+    # The fee comes from the header metadata rather than delivery_configs[].price,
+    # which is null in live responses. Wolt only publishes a displayed range here,
+    # because the real fee depends on basket size, distance and subscription.
     delivery_fee = (
         next(
             (
