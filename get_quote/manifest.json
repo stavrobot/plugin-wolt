@@ -1,0 +1,19 @@
+{
+  "name": "get_quote",
+  "description": "Return a live Wolt checkout price for an existing restaurant basket. This creates a checkout quote but buys nothing and does not charge a card. A basket must already have been built with update_basket.",
+  "entrypoint": "run.py",
+  "parameters": {
+    "slug": {
+      "type": "string",
+      "description": "Restaurant slug for the existing basket, as returned by search_restaurants."
+    },
+    "delivery_target_id": {
+      "type": "string",
+      "description": "Optional saved delivery address ID from list_delivery_addresses. If omitted, the first saved address is used and shown in the result."
+    },
+    "courier_tip": {
+      "type": "integer",
+      "description": "Optional non-negative courier tip in cents. Defaults to 0."
+    }
+  }
+}

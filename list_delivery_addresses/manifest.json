@@ -1,0 +1,6 @@
+{
+  "name": "list_delivery_addresses",
+  "description": "List saved delivery addresses so you can choose one for a checkout quote.",
+  "entrypoint": "run.py",
+  "parameters": {}
+}

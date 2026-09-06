@@ -1,0 +1,11 @@
+{
+  "name": "view_basket",
+  "description": "View saved Wolt baskets. Pass a restaurant slug for its current menu-priced item details; omit it for a fast basket summary.",
+  "entrypoint": "run.py",
+  "parameters": {
+    "slug": {
+      "type": "string",
+      "description": "Restaurant slug whose basket to show. Optional; omit to list saved basket summaries."
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "get_item_options",
+  "description": "Get the selectable option configurations for one menu item. The configuration ID and value IDs returned here are the IDs update_basket takes.",
+  "entrypoint": "run.py",
+  "parameters": {
+    "slug": {
+      "type": "string",
+      "description": "Restaurant slug, as returned by search_restaurants."
+    },
+    "item_id": {
+      "type": "string",
+      "description": "Menu item ID, as returned by get_menu."
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "get_menu",
-  "description": "Get a restaurant menu with optional name filtering.",
+  "description": "Get a restaurant menu with optional name filtering. Each item's ID is required by the basket tools.",
   "entrypoint": "run.py",
   "parameters": {
     "slug": {

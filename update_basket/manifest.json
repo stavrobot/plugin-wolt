@@ -1,0 +1,27 @@
+{
+  "name": "update_basket",
+  "description": "Replace the restaurant basket shown in the Wolt app with one requested change. This never places an order and never charges a card. Item IDs come from get_menu; option configuration and value IDs come from get_item_options.",
+  "entrypoint": "run.py",
+  "parameters": {
+    "slug": {
+      "type": "string",
+      "description": "Restaurant slug, as returned by search_restaurants."
+    },
+    "action": {
+      "type": "string",
+      "description": "One of: add, set_count, set_options, or remove."
+    },
+    "item_id": {
+      "type": "string",
+      "description": "Menu item ID from get_menu. Required for every action."
+    },
+    "count": {
+      "type": "integer",
+      "description": "Positive item count. Required for add and set_count."
+    },
+    "option_selections": {
+      "type": "array",
+      "description": "Selected options. Required for set_options and optional for add. set_options replaces the item's complete option selection: an empty list clears every option, and omitted configurations are cleared. Each entry has configuration_id and values; each value has id and positive count. Configuration and value IDs come from get_item_options."
+    }
+  }
+}
