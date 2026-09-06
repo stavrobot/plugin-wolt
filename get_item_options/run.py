@@ -1,6 +1,6 @@
 #!/usr/bin/env -S uv run
 # /// script
-# dependencies = ["woltapi~=0.4.1"]
+# dependencies = ["woltapi~=0.5.0"]
 # ///
 
 import sys

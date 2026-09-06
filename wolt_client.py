@@ -157,16 +157,24 @@ def find_saved_basket(
     baskets_page: Mapping[str, object], slug: str
 ) -> dict[str, object] | None:
     """Return the saved basket for ``slug``, if the page contains one."""
+    matching_baskets = find_saved_baskets(baskets_page, slug)
+    return matching_baskets[0] if matching_baskets else None
+
+
+def find_saved_baskets(
+    baskets_page: Mapping[str, object], slug: str
+) -> list[dict[str, object]]:
+    """Return every saved basket for ``slug`` on the page."""
     baskets = baskets_page.get("baskets")
     if not isinstance(baskets, list):
-        return None
-    for basket in baskets:
-        if not isinstance(basket, dict):
-            continue
-        venue = basket.get("venue")
-        if isinstance(venue, dict) and venue.get("slug") == slug:
-            return basket
-    return None
+        return []
+    return [
+        basket
+        for basket in baskets
+        if isinstance(basket, dict)
+        and isinstance(basket.get("venue"), dict)
+        and basket["venue"].get("slug") == slug
+    ]
 
 
 def rebuild_saved_basket(

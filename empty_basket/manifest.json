@@ -1,0 +1,11 @@
+{
+  "name": "empty_basket",
+  "description": "Delete the saved Wolt basket for one restaurant. This permanently removes the basket and cannot be recovered. It never places an order and never charges a card.",
+  "entrypoint": "run.py",
+  "parameters": {
+    "slug": {
+      "type": "string",
+      "description": "Restaurant slug, as returned by search_restaurants."
+    }
+  }
+}

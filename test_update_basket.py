@@ -181,7 +181,7 @@ def test_each_action_saves_and_returns_the_local_basket(
         (
             {"action": "remove", "item_id": "fake-noodles"},
             [_saved_item("fake-noodles", 1)],
-            "last item in the basket. The basket must be emptied in the Wolt app",
+            "last item in the basket. Use empty_basket to delete the whole basket",
         ),
         (
             {"action": "set_count", "item_id": "fake-dumplings", "count": 2},

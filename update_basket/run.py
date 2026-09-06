@@ -1,6 +1,6 @@
 #!/usr/bin/env -S uv run
 # /// script
-# dependencies = ["woltapi~=0.4.1"]
+# dependencies = ["woltapi~=0.5.0"]
 # ///
 
 import sys
@@ -13,7 +13,7 @@ from woltapi import Basket, SelectionError, WoltClient
 
 from wolt_client import (
     configured_location,
-    find_saved_basket,
+    find_saved_baskets,
     format_basket,
     item_restriction_reason,
     main,
@@ -48,18 +48,12 @@ def update_basket(
         raise ValueError(
             "The baskets page could not be read; no change was made."
         )
-    matching_baskets = [
-        basket
-        for basket in baskets_page["baskets"]
-        if isinstance(basket, dict)
-        and isinstance(basket.get("venue"), dict)
-        and basket["venue"].get("slug") == slug
-    ]
+    matching_baskets = find_saved_baskets(baskets_page, slug)
     if len(matching_baskets) > 1:
         raise ValueError(
             "More than one saved basket matches this restaurant; no change was made."
         )
-    saved_basket = find_saved_basket(baskets_page, slug)
+    saved_basket = matching_baskets[0] if matching_baskets else None
     if saved_basket is None and action != "add":
         raise ValueError(
             f"Cannot {action} {_item_label(None, item_id)}: this restaurant has no "
@@ -96,12 +90,14 @@ def update_basket(
                 f"Cannot add {item_label}: {restriction_reason} "
                 "Choose a different item from get_menu."
             )
+    # Deleting a basket must remain an explicit caller choice, never a side
+    # effect of removing its final item.
     elif (
         action == "remove" and item_id in basket.contents and len(basket.contents) == 1
     ):
         raise ValueError(
             f"Cannot remove {item_label}: it is the last item in the basket. "
-            "The basket must be emptied in the Wolt app."
+            "Use empty_basket to delete the whole basket."
         )
 
     try:

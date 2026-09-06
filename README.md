@@ -14,8 +14,8 @@ plugin can overwrite it.
 
 Two limits are worth knowing before you start.
 
-The plugin cannot empty a basket, because Wolt has no API for deleting one. It
-can remove items, but not the last one. To empty a basket, use the Wolt app.
+The plugin cannot remove the last item from a basket. To delete a whole basket,
+use `empty_basket`.
 
 A basket holds one line per menu item, so the same dish cannot appear twice with
 different options. Ordering two burgers, one with cheese and one without, is not
@@ -83,8 +83,8 @@ Your saved Wolt baskets. This reads what the Wolt app shows.
   item count, and whether it is currently available.
 
 If a restaurant has changed its menu since you saved a basket, the basket can no
-longer be read. The tool says which item caused it. Empty the basket in the Wolt
-app to recover.
+longer be read. The tool says which item caused it. Use `empty_basket` to
+recover.
 
 ### update_basket
 
@@ -101,15 +101,24 @@ app.** It never orders anything and never charges your card.
 `set_options` replaces the item's whole option selection. An empty list clears
 every option, and any configuration you leave out is cleared too.
 
-There is no way to empty a basket, so `remove` refuses to take out the last
-item. Adding an item that is already in the basket also refuses, and tells you
-its current count and options, because one item ID means one basket line. Use
-`set_count` or `set_options` to change it.
+`remove` refuses to take out the last item, so deleting a whole basket is always
+an explicit choice through `empty_basket`. Adding an item that is already in the
+basket also refuses, and tells you its current count and options, because one
+item ID means one basket line. Use `set_count` or `set_options` to change it.
 
 Restricted and alcoholic items are refused.
 
 The result is the basket after the change, so you can see what happened without
 asking again.
+
+### empty_basket
+
+Permanently delete the saved Wolt basket for one restaurant. This cannot be
+recovered. It never orders anything and never charges your card.
+
+- `slug` — from `search_restaurants`.
+
+If the restaurant has no saved basket, the result says that nothing was deleted.
 
 ### list_delivery_addresses
 

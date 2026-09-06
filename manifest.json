@@ -1,6 +1,6 @@
 {
   "name": "wolt",
-  "description": "Search for restaurants, browse menus, build a basket, get a live price, and view order status through Wolt. Changes the basket in your Wolt app, but never places an order and never charges a card.",
+  "description": "Search for restaurants, browse menus, build, update, and empty a basket, get a live price, and view order status through Wolt. Changes the basket in your Wolt app, but never places an order and never charges a card.",
   "config": {
     "refresh_token": {
       "description": "Your Wolt consumer refresh token. In a logged-in Wolt browser tab, open DevTools > Application > Cookies and copy the value of the __wrtoken cookie, without the surrounding quotes. This is not the Bearer token from an Authorization header. Treat it like a password.",
