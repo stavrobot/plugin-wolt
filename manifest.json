@@ -1,6 +1,7 @@
 {
   "name": "wolt",
   "description": "Browse Wolt restaurants and build a food delivery basket.",
+  "summary": "Browse Wolt restaurants and build a basket",
   "config": {
     "refresh_token": {
       "description": "Your Wolt consumer refresh token. In a logged-in Wolt browser tab, open DevTools > Application > Cookies and copy the value of the __wrtoken cookie, without the surrounding quotes. This is not the Bearer token from an Authorization header. Treat it like a password.",
